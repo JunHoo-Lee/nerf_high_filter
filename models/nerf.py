@@ -128,10 +128,11 @@ class NeRF(nn.Module):
 
         # apply high-pass filter
         # before we go, let's check its shape..
-        print(xyz_.shape)
-        xyz_ = self.high_pass_filter(xyz_)
+        print("xyz shape and w shape", xyz_.shape, self.W)
+        # xyz_ = self.high_pass_filter(xyz_)
 
         sigma = self.sigma(xyz_)
+        print("sigma shape", sigma.shape)
         if sigma_only:
             return sigma
 
