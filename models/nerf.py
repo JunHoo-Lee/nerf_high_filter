@@ -90,7 +90,7 @@ class NeRF(nn.Module):
         )
 
         # add high-pass filter
-        self.high_pass_filter = HighPassFilter(cutoff_frequency=100)
+        self.high_pass_filter = HighPassFilter(cutoff_frequency=0.5)
 
         # output layers
         self.sigma = nn.Linear(W, 1)
