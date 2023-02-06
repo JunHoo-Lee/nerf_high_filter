@@ -127,6 +127,8 @@ class NeRF(nn.Module):
             xyz_ = getattr(self, f"xyz_encoding_{i+1}")(xyz_)
 
         # apply high-pass filter
+        # before we go, let's check its shape..
+        print(xyz_.shape)
         xyz_ = self.high_pass_filter(xyz_)
 
         sigma = self.sigma(xyz_)
